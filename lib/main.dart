@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:collarapp/Bluetooth/bluetooth_connection.dart';
-import 'package:collarapp/Homepage/homepage.dart';
+import 'package:collarapp/Modes/mode_selection.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: ModeSelection(),
     );
   }
 }
