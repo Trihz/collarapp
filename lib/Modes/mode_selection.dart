@@ -145,7 +145,7 @@ class _ModeSelectionState extends State<ModeSelection> {
                           decoration: const BoxDecoration(
                             color: Color.fromRGBO(255, 255, 255, 1),
                           ),
-                          child: Image.asset("assets/remote-control.png"),
+                          child: Image.asset("assets/phone.png"),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height * 0.04,

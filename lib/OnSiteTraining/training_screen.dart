@@ -192,7 +192,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                         "Connection",
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 13,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400),
                       ),
                     ],
@@ -257,11 +257,11 @@ class _TrainingScreenState extends State<TrainingScreen> {
                       Text(
                         "SCAN",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.orange,
                             fontSize: 14,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w500),
                       ),
-                      Icon(Icons.cast_connected),
+                      Icon(Icons.cast_connected, color: Colors.orange),
                     ],
                   ),
                 ),
@@ -288,11 +288,11 @@ class _TrainingScreenState extends State<TrainingScreen> {
                       Text(
                         "CONNECT",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.orange,
                             fontSize: 14,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w500),
                       ),
-                      Icon(Icons.bluetooth_connected)
+                      Icon(Icons.bluetooth_connected, color: Colors.orange)
                     ],
                   ),
                 ),
@@ -385,7 +385,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   /// TRAINING CONTAINER
   Widget trainingContainer() {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.2,
+      height: MediaQuery.of(context).size.height * 0.17,
       width: MediaQuery.of(context).size.width * 1,
       decoration: const BoxDecoration(
         color: Colors.transparent,
@@ -413,8 +413,8 @@ class _TrainingScreenState extends State<TrainingScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.13,
-                width: MediaQuery.of(context).size.width * 0.27,
+                height: MediaQuery.of(context).size.height * 0.11,
+                width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   color: mainColor2,
                   borderRadius: const BorderRadius.all(Radius.circular(5)),
@@ -427,19 +427,19 @@ class _TrainingScreenState extends State<TrainingScreen> {
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w400),
                     ),
                     Icon(
                       Icons.flash_on,
                       size: 35,
-                      color: mainColor,
+                      color: Colors.black,
                     ),
                   ],
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.13,
-                width: MediaQuery.of(context).size.width * 0.27,
+                height: MediaQuery.of(context).size.height * 0.11,
+                width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   color: mainColor2,
                   borderRadius: const BorderRadius.all(Radius.circular(5)),
@@ -452,19 +452,19 @@ class _TrainingScreenState extends State<TrainingScreen> {
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w400),
                     ),
                     Icon(
                       Icons.vibration,
                       size: 35,
-                      color: mainColor,
+                      color: Colors.black,
                     ),
                   ],
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.13,
-                width: MediaQuery.of(context).size.width * 0.27,
+                height: MediaQuery.of(context).size.height * 0.11,
+                width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   color: mainColor2,
                   borderRadius: const BorderRadius.all(Radius.circular(5)),
@@ -477,12 +477,12 @@ class _TrainingScreenState extends State<TrainingScreen> {
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w400),
                     ),
                     Icon(
                       Icons.volume_up_outlined,
                       size: 35,
-                      color: mainColor,
+                      color: Colors.black,
                     ),
                   ],
                 ),
@@ -535,13 +535,53 @@ class _TrainingScreenState extends State<TrainingScreen> {
   /// SIGNAL STRENGTH
   Widget signalStrength() {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.05,
-      width: MediaQuery.of(context).size.width * 0.7,
+      height: MediaQuery.of(context).size.height * 0.1,
+      width: MediaQuery.of(context).size.width * 1,
       margin: EdgeInsets.only(
           right: MediaQuery.of(context).size.width * 0.05,
           left: MediaQuery.of(context).size.width * 0.05),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.transparent,
+      ),
+      child: Column(
+        children: [
+          Container(
+              height: MediaQuery.of(context).size.height * 0.04,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Text(
+                "Signal Strength",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.03,
+                width: MediaQuery.of(context).size.width * 0.8,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: LinearProgressIndicator(
+                  value: 0.3,
+                  color: Color.fromARGB(118, 255, 153, 0),
+                  backgroundColor: Color.fromARGB(76, 255, 153, 0),
+                ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+              Text("10%",
+                  style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700))
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -568,14 +608,17 @@ class _TrainingScreenState extends State<TrainingScreen> {
                     ),
                     connectedDog(),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
+                      height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     trainingContainer(),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
+                      height: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                    signalStrength(),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     connectNewCollar(),
-                    signalStrength()
                   ],
                 ),
         ),
